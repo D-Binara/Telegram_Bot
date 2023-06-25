@@ -1,6 +1,6 @@
 from typing import Final
 
-# pip install python-telegram-bot
+
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
@@ -12,8 +12,16 @@ BOT_USERNAME: Final = ' @first200win_bot'
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Hello there! I\'m a bot. What\'s up?')
 
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text('Bye')
+
 if __name__ == '__main__':
     app = Application.builder().token(TOKEN).build()
 
-    # Commands
+
     app.add_handler(CommandHandler('start', start_command))
+    app.add_handler(CommandHandler('help', help_command))
+
+    print('Polling...')
+    # Run the bot
+    app.run_polling(poll_interval=2)
