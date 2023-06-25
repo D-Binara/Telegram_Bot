@@ -15,13 +15,18 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Bye')
 
+async def custom_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text('This is a custom command, you can add whatever text you want here.')
+
+
 if __name__ == '__main__':
     app = Application.builder().token(TOKEN).build()
 
 
     app.add_handler(CommandHandler('start', start_command))
     app.add_handler(CommandHandler('help', help_command))
+    app.add_handler(CommandHandler('custom', custom_command))
 
     print('Polling...')
 
-    app.run_polling(poll_interval=2)
+    app.run_polling(poll_interval=4)
