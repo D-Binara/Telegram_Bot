@@ -12,10 +12,10 @@ BOT_USERNAME: Final = ' @first200win_bot'
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Hello there! I\'m a bot. What\'s up?')
 
-async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('Bye')
+async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text('I am testing bot')
 
-async def custom_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def language_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('This is a custom command, you can add whatever text you want here.')
 
 
@@ -24,9 +24,9 @@ if __name__ == '__main__':
 
 
     app.add_handler(CommandHandler('start', start_command))
-    app.add_handler(CommandHandler('help', help_command))
-    app.add_handler(CommandHandler('custom', custom_command))
+    app.add_handler(CommandHandler('about', about_command))
+    app.add_handler(CommandHandler('language', language_command))
 
     print('Polling...')
 
-    app.run_polling(poll_interval=4)
+    app.run_polling(poll_interval=2)
