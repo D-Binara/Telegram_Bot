@@ -23,5 +23,5 @@ if __name__ == '__main__':
     app.add_handler(CommandHandler('help', help_command))
 
     print('Polling...')
-    # Run the bot
+
     app.run_polling(poll_interval=2)
