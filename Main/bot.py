@@ -1,17 +1,22 @@
 from typing import Final
 
-from Main.Token import token,username  
+from Token import token,username  
 
 from telegram import Update
 from telegram.ext import *
+from aiogram 
 
 print('Starting up bot...')
 
 TOKEN: Final = token
 BOT_USERNAME: Final = username
 
+button1 = KeyboardButton("Hello")
+
+Keyboard1 = ReplyKeybord1().add (button1)
+
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('Hello there! I\'m a bot. What\'s up?')
+    await update.message.reply_text('Hello there! I\'m a bot. What\'s up?',reply_markup=Keyboard1 )
 
 async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('I am testing bot')
