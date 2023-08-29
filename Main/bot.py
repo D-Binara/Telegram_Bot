@@ -4,7 +4,7 @@ from Token import token,username
 
 from telegram import Update
 from telegram.ext import *
-from aiogram 
+from aiogram import *
 
 print('Starting up bot...')
 
