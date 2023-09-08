@@ -14,11 +14,13 @@ TOKEN: Final = token
 BOT_USERNAME: Final = username
 
 button1 = keyboard_button('Hello')
+button2 = keyboard_button('Test')
 
 keyboard1 = ReplyKeyboardMarkup(resize_keyboard=True).add(button1)
+keyboard2 = ReplyKeyboardMarkup
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('Hello there! I\'m a bot. What\'s up?',reply_markup=keyboard1 )
+    await update.message.reply_text('Hello there! I\'m a bot. What\'s up?', reply_markup=keyboard1 )
 
 async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('I am testing bot')
@@ -30,7 +32,6 @@ async def language_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 if __name__ == '__main__':
     app = Application.builder().token(TOKEN).build()
-
 
     app.add_handler(CommandHandler('start', start_command))
     app.add_handler(CommandHandler('about', about_command))
