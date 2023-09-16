@@ -27,27 +27,25 @@ async def language_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('This is a custom command, you can add whatever text you want here.')
 
 
-# responses
-
+# Define a function to handle incoming text messages
 def handle_text_message(update: Update, context: CallbackContext):
     user_message = update.message.text.lower()
-
-    if 'hello ' in  user_message:
-        return "Hello"
-
-    return 'I can not understand you'
+    if 'hello' in user_message:
+        update.message.reply_text('Hello!')
+    else:
+        update.message.reply_text('I cannot understand you.')
 
 
 if __name__ == '__main__':
     app = Application.builder().token(TOKEN).build()
+
 
     # commands
     app.add_handler(CommandHandler('start', start_command))
     app.add_handler(CommandHandler('about', about_command))
     app.add_handler(CommandHandler('language', language_command))
 
-    # Message
-    app.add_handler(MessageHandler(filters.text & ~filters.command, handle_text_message))
+
 
     # polling
     print('Polling...')
