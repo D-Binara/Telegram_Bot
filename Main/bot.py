@@ -1,5 +1,7 @@
 from typing import Final
 
+import executor
+
 from Token import token, username
 
 from telegram import Update
@@ -10,11 +12,13 @@ from aiogram.types import *
 
 print('Starting up bot...')
 
-TOKEN: Final = token
-BOT_USERNAME: Final = username
+# TOKEN: Final = token
+# BOT_USERNAME: Final = username
+# Put the token that you received from BotFather in the quotes
+bot = Bot(token=token)
 
 # Initializing the dispatcher object
-app = Dispatcher(BOT_USERNAME)
+app = Dispatcher(bot)
 
 # Defining and adding buttons
 button1 = InlineKeyboardButton(text="button1", callback_data="In_First_button")
@@ -24,7 +28,6 @@ keyboard_inline = InlineKeyboardMarkup().add(button1, button2)
 
 
 # Message handler for the /button1 command
-
 
 @app.message_handler(commands=['start'])
 async def check(message: types.Message):
@@ -46,4 +49,4 @@ async def check_button(call: types.CallbackQuery):
 
 
 # Start the bot
-executor.start_polling(dp)
+executor.start_polling(app)
