@@ -71,6 +71,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print('Bot', response)
     await update.message.reply_text(response)
 
+# Test git branch
 
 if __name__ == '__main__':
     app = Application.builder().token(TOKEN).build()
